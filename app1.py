@@ -25,6 +25,7 @@ load_model = tf.keras.models.load_model
 genai.configure(api_key="AIzaSyDOE7eUJCOitdcn3wrCsVww5uHlJnBxQbA")
 genai_model = genai.GenerativeModel('gemini-1.5-pro')
 
+MODEL_PATH = Path("models/")
 model = load_model(MODEL_PATH / "botmodel.h5")
 tok = joblib.load(MODEL_PATH / "tokenizer_t.pkl")
 words = joblib.load(MODEL_PATH / "words.pkl")
