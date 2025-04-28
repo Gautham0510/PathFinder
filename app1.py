@@ -1,32 +1,33 @@
+# --- Built-in Libraries
+import math
+from pathlib import Path
+
+# --- Third Party Libraries
 import numpy as np
 import pandas as pd
-import counselor
-import tensorflow as tf
-load_model = tf.keras.models.load_model
-import joblib
-from pathlib import Path
-from PIL import Image
 import streamlit as st
-import imagify
+import tensorflow as tf
+import joblib
+from PIL import Image
 from bokeh.plotting import figure, output_file, show
-import math
 from bokeh.palettes import Greens
 from bokeh.transform import cumsum
 from bokeh.models import LabelSet, ColumnDataSource
 import google.generativeai as genai
 
-#ap = Path.joinpath(Path.cwd(), 'models')
-#dsp = Path.joinpath(Path.cwd(), 'dataset')
+# --- Custom Local Modules
+import counselor  # Make sure counselor.py exists in your repo
+import imagify     # Make sure imagify.py exists too
 
-#model = load_model(Path.joinpath(artifacts_path, 'botmodel.h5'))
-#tok = joblib.load(Path.joinpath(artifacts_path, 'tokenizer_t.pkl'))
-#words = joblib.load(Path.joinpath(artifacts_path, 'words.pkl'))
-#df2 = pd.read_csv(Path.joinpath(datasets_path, 'bot.csv'))
-genai.configure(api_key="AIzaSyDOE7eUJCOitdcn3wrCsVww5uHlJnBxQbA")
+# --- TensorFlow Model Loader Alias
+load_model = tf.keras.models.load_model
+## Configure Gemini AI API
+genai.configure(api_key="YOUR_API_KEY")
 genai_model = genai.GenerativeModel('gemini-1.5-pro')
-model = load_model('botmodel.h5')
-tok = joblib.load("C:/Users/conne/Downloads/8th Sem Project/CounselBot-main/CounselBot-main/tokenizer_t.pkl")
-words = joblib.load("C:/Users/conne/Downloads/8th Sem Project/CounselBot-main/CounselBot-main/words.pkl")
+
+model = load_model(MODEL_PATH / "botmodel.h5")
+tok = joblib.load(MODEL_PATH / "tokenizer_t.pkl")
+words = joblib.load(MODEL_PATH / "words.pkl")
 df2 = pd.read_csv('bot.csv')
 flag=1
 
