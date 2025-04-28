@@ -22,7 +22,7 @@ import imagify     # Make sure imagify.py exists too
 # --- TensorFlow Model Loader Alias
 load_model = tf.keras.models.load_model
 ## Configure Gemini AI API
-genai.configure(api_key="YOUR_API_KEY")
+genai.configure(api_key="AIzaSyDOE7eUJCOitdcn3wrCsVww5uHlJnBxQbA")
 genai_model = genai.GenerativeModel('gemini-1.5-pro')
 
 model = load_model(MODEL_PATH / "botmodel.h5")
